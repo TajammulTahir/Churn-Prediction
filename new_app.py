@@ -8,10 +8,6 @@ import pickle
 # Load the Traned Model, Scaler, Label, Onehot, Pickle
 model = tf.keras.models.load_model('model.keras', compile = False)
 
-# save to the native Keras format (recommended)
-m.save("model.keras", save_format="keras")
-print("Saved model.keras (native Keras format).")
-
 with open('label_encoder_gender','rb') as file:
     label_encoding_gender= pickle.load(file)
 
@@ -68,4 +64,5 @@ st.write(f"Churn Probability: {prediction_proba:.2f}")
 if prediction_proba > 0.5:
     st.write("The customer is likely to Churn.")
 else:
+
     st.write("The customer is Not likely to Churn.")
